@@ -1,0 +1,890 @@
+/* CSS Variables untuk tema biru modern */
+:root {
+    --primary: #18448b;
+    --primary-light: #dbeafe;
+    --primary-dark: #f6c31b;
+    --secondary: #768394;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --gray: #94a3b8;
+    --gray-light: #e2e8f0;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Layout Utama */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ============================================= */
+/* SIDEBAR STYLES */
+/* ============================================= */
+
+/* Sidebar - Fixed */
+.sidebar {
+    width: 280px;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    z-index: 1000;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    transform: translateX(0);
+}
+
+/* Sidebar Header - Logo di Tengah */
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--gray-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    position: relative;
+}
+
+/* Style untuk gambar logo */
+.logo-image {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect untuk logo */
+.logo-image:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Close Sidebar Button */
+.close-sidebar {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.close-sidebar:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Style untuk menu sidebar */
+.sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.menu-item {
+    margin: 6px 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--secondary);
+    border-radius: var(--radius);
+    border-left: 4px solid transparent;
+}
+
+.menu-item:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.menu-item.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+.menu-item i {
+    font-size: 20px;
+}
+
+.menu-dropdown {
+    padding-left: 52px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.menu-dropdown.active {
+    max-height: 200px;
+}
+
+.dropdown-item {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--secondary);
+}
+
+.dropdown-item:hover {
+    color: var(--primary);
+}
+
+.dropdown-item.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid var(--gray-light);
+}
+
+/*--------------PRO CARD--------------*/
+.pro-card {
+    background: linear-gradient(
+        145deg,
+        #012c6d 0%,
+        #f6d963 100%
+    );
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.pro-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.btn-pro {
+    margin-top: 12px;
+    background-color: white;
+    color: #041c42;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-pro:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/*PROFILE USER SIDEBAR*/
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.user-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-info p {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: center;
+}
+
+/* ============================================= */
+/* MAIN CONTENT STYLES */
+/* ============================================= */
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+
+.page-header {
+    padding: 24px 32px;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.page-content {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+}
+
+/* ============================================= */
+/* DATE INDICATOR STYLES */
+/* ============================================= */
+
+.date-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-light);
+}
+
+.current-date {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Date Picker Modal */
+.date-picker-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-picker-content {
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    width: 400px;
+    max-width: 90vw;
+}
+
+.date-picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-picker-header h3 {
+    margin: 0;
+    color: var(--dark);
+}
+
+.date-picker-body {
+    margin-bottom: 20px;
+}
+
+.date-input-group {
+    margin-bottom: 16px;
+}
+
+.date-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 14px;
+}
+
+.date-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.quick-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.quick-actions .btn {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+.date-picker-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* ============================================= */
+/* BUTTON STYLES */
+/* ============================================= */
+
+.btn {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-light);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-warning {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.btn-warning:hover {
+    background-color: #e69500;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* ============================================= */
+/* FORM STYLES */
+/* ============================================= */
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================= */
+/* TASK STATUS STYLES */
+/* ============================================= */
+
+.task-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-open {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+}
+
+.status-completed {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.status-overdue {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.status-submitted {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.status-locked {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: var(--secondary);
+}
+
+/* ============================================= */
+/* MOBILE RESPONSIVE SIDEBAR */
+/* ============================================= */
+
+/* Mobile Header */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.hamburger-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.mobile-logo .logo-image-mobile {
+    height: 30px;
+    width: auto;
+}
+
+.user-avatar-mobile {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+}
+
+/* ============================================= */
+/* RESPONSIVE DESIGN */
+/* ============================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 260px;
+    }
+    
+    .main-content {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+    }
+    
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .close-sidebar {
+        display: block;
+    }
+    
+    .sidebar-header {
+        position: relative;
+        padding-right: 60px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 60px;
+    }
+    
+    .page-header {
+        padding: 16px 20px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .page-title {
+        font-size: 20px;
+    }
+    
+    .date-indicator {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .current-date {
+        font-size: 13px;
+    }
+    
+    .page-content {
+        padding: 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+    }
+    
+    .mobile-header {
+        height: 56px;
+        padding: 0 12px;
+    }
+    
+    .hamburger-btn {
+        font-size: 22px;
+        padding: 6px;
+    }
+    
+    .mobile-logo .logo-image-mobile {
+        height: 26px;
+    }
+    
+    .user-avatar-mobile {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .main-content {
+        padding-top: 56px;
+    }
+    
+    .page-header {
+        padding: 12px 16px;
+    }
+    
+    .page-content {
+        padding: 16px;
+    }
+    
+    .sidebar-header {
+        padding: 20px 60px 20px 20px;
+    }
+    
+    .sidebar-menu {
+        padding: 20px 0;
+    }
+    
+    .menu-item {
+        margin: 4px 10px;
+        padding: 14px 16px;
+    }
+    
+    .sidebar-footer {
+        padding: 20px 16px;
+    }
+    
+    .pro-card {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .btn-pro {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* ============================================= */
+/* SAFE AREA & ACCESSIBILITY */
+/* ============================================= */
+
+/* Safe area untuk notched devices */
+@supports(padding: max(0px)) {
+    .mobile-header {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-top: env(safe-area-inset-top);
+        height: calc(60px + env(safe-area-inset-top));
+    }
+    
+    .sidebar {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    @media (max-width: 480px) {
+        .mobile-header {
+            padding-left: max(12px, env(safe-area-inset-left));
+            padding-right: max(12px, env(safe-area-inset-right));
+            height: calc(56px + env(safe-area-inset-top));
+        }
+    }
+}
+
+/* Touch improvements untuk mobile */
+@media (hover: none) and (pointer: coarse) {
+    .hamburger-btn:active,
+    .close-sidebar:active {
+        background-color: var(--primary-light);
+        transform: scale(0.95);
+    }
+    
+    .menu-item:active {
+        background-color: var(--primary-light);
+        transform: scale(0.98);
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ============================================= */
+/* ANIMATIONS */
+/* ============================================= */
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: var(--white);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Animation untuk logo */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-image {
+    animation: logoFadeIn 0.6s ease-out;
+}
+
+/* Animation untuk sidebar */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.sidebar.mobile-open {
+    animation: slideIn 0.3s ease;
+}
+
+/* ============================================= */
+/* SCROLLBAR STYLING */
+/* ============================================= */
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--gray-light);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Scrollbar untuk webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* ============================================= */
+/* LANDSCAPE ORIENTATION */
+/* ============================================= */
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .mobile-header {
+        height: 50px;
+    }
+    
+    .main-content {
+        padding-top: 50px;
+    }
+}
+
+/* High-resolution devices */
+@media (min-resolution: 2dppx) {
+    .logo-image,
+    .logo-image-mobile {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
